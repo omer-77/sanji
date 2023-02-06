@@ -9,11 +9,17 @@ const routes = [
     name: "home",
     component: () => import("../views/HomeView.vue"),
   },
+  {
+    path: "/products",
+    name: "Products",
+    component: () => import("../views/ProductsView.vue"),
+  },
 ];
 
 const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
+  linkExactActiveClass: "active",
   routes,
 });
 

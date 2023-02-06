@@ -3,13 +3,13 @@
     <div class="header-logo">Logo</div>
     <div class="header-content">
       <div class="navigation-list">
-        <a
+        <router-link
           v-for="(item, index) in navigationList"
-          @click="$router.push(item.route)"
+          :to="item.route"
           :key="index"
         >
           {{ item.name }}
-        </a>
+        </router-link>
       </div>
     </div>
     <div class="header-action">
@@ -25,25 +25,35 @@ export default {
   components: { Button },
   data() {
     return {
+      activeRoute: "home",
       navigationList: [
         {
-          name: "Home",
+          name: "home",
           route: "/",
         },
         {
-          name: "About",
-          route: "#",
+          name: "about",
+          route: "/#",
         },
         {
-          name: "Services",
-          route: "#",
+          name: "services",
+          route: "/##",
         },
         {
-          name: "Products",
+          name: "products",
           route: "/Products",
         },
       ],
     };
+  },
+  methods: {
+    handleClick(item) {
+      if (item.route.length) {
+        this.$router.push(item.route);
+      }
+
+      this.activeRoute = item.name;
+    },
   },
 };
 </script>
@@ -58,7 +68,6 @@ export default {
   left: 0;
   width: -webkit-fill-available;
   z-index: 3;
-  /* box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5); */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -87,10 +96,18 @@ export default {
     justify-content: center;
     font-size: 14px;
 
-    a {
+    a,
+    .router-link {
+      color: $primary;
+      text-decoration: none;
       margin: 15px;
       font-size: 12px;
       cursor: pointer;
+      text-transform: capitalize;
+
+      &.active {
+        opacity: 0.5;
+      }
 
       @include sm {
         float: none;

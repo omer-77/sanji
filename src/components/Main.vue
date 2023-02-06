@@ -13,8 +13,8 @@
         </div>
       </div>
       <div class="right">
-        <img class="image-big" src="https://fakeimg.pl/250/" />
-        <img class="image-small" src="https://fakeimg.pl/150/" />
+        <img class="image-big" :src="`${imgProvider}/250`" />
+        <img class="image-small" :src="`${imgProvider}/150`" />
       </div>
     </div>
 
@@ -27,7 +27,7 @@
         </div>
       </div>
       <div class="middle">
-        <img class="image-big" src="https://fakeimg.pl/250/" />
+        <img class="image-big" :src="`${imgProvider}/250`" />
       </div>
       <div class="right">
         <h4 class="header">Lorem ipsum dolor sit amet, consectetur</h4>
@@ -42,8 +42,14 @@
 
 <script>
 import Button from "@/components/shared/Button.vue";
+
 export default {
   components: { Button },
+  data() {
+    return {
+      imgProvider: process.env.VUE_APP_IMG_CDN,
+    };
+  },
 };
 </script>
 
@@ -51,6 +57,10 @@ export default {
 h1,
 h4 {
   text-align: left;
+
+  @include sm {
+    text-align: center !important;
+  }
 }
 
 .main-container {
@@ -58,11 +68,20 @@ h4 {
   margin-top: 55px;
   padding: 40px 50px;
 
+  @include sm {
+    margin-top: 85px;
+  }
+
   .description {
     font-size: 12px;
     margin-bottom: 16px;
     text-align: left;
     color: $secondary;
+    margin-top: 1rem;
+
+    @include sm {
+      text-align: center;
+    }
   }
 
   .about-section {

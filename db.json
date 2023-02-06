@@ -1,29 +1,24 @@
 {
-  "todos": [
+  "products": [
     {
-      "id": 0,
-      "name": "Go to the gym",
-      "done": false
+      "name": "banana",
+      "price": "2",
+      "id": 3
     },
     {
-      "id": 1,
-      "name": "Walk the dog",
-      "done": false
-    },
-    {
-      "id": 2,
-      "name": "Get some pizza",
-      "done": false
-    },
-    {
-      "name": "Finish this project",
-      "id": 3,
-      "done": false
-    },
-    {
-      "name": "Finish this project",
-      "done": false,
+      "name": "kiwi",
+      "price": 120,
       "id": 4
+    },
+    {
+      "name": "product-new",
+      "price": "11",
+      "id": 5
+    },
+    {
+      "name": "Apple",
+      "price": "222",
+      "id": 6
     }
   ]
 }

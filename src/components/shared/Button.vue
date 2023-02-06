@@ -55,8 +55,6 @@ export default {
     }
   }
 
-  /* Colors
-    *************************************/
   &--primary {
     background-color: $primary;
     color: $white;

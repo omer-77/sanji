@@ -1,18 +1,18 @@
 <template>
   <div>
     <Header />
-    <Main />
+    <Products />
     <Footer />
   </div>
 </template>
 
 <script>
 import Header from "@/components/Header.vue";
-import Main from "@/components/Main.vue";
+import Products from "@/components/Products.vue";
 import Footer from "@/components/Footer.vue";
 
 export default {
-  name: "HomeView",
-  components: { Header, Main, Footer },
+  name: "ProductsView",
+  components: { Header, Products, Footer },
 };
 </script>
